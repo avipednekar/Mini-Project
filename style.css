@@ -1,0 +1,69 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #87CEEB; /* Sky blue */
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.road {
+  width: 60%;
+  height: 80%;
+  background-color: #555; /* Dark gray for the road */
+  position: relative;
+  z-index: 1;
+}
+
+.grass-left, .grass-right {
+  width: 20%;
+  height: 80%;
+  background-color: #228B22; /* Forest green for grass */
+  position: absolute;
+  top: 10%; /* Center the grass vertically */
+}
+
+.grass-left {
+  left: 0;
+}
+
+.grass-right {
+  right: 0;
+}
+
+.tree {
+  width: 50px;
+  height: 100px;
+  background-color: #8B4513; /* Brown for the trunk */
+  position: absolute;
+  bottom: 10%; /* Position trees above the grass */
+}
+
+.tree-left {
+  left: 5%;
+}
+
+.tree-right {
+  right: 5%;
+}
+
+.tree:before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: -20px;
+  width: 90px;
+  height: 90px;
+  background-color: #32CD32; /* Lime green for the leaves */
+  border-radius: 50%;
+}

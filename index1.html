@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>A simple Three.JS App</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    
+  </head>
+  <body>
+    <div id="destination-info">
+      <!-- <h2>Selected Route:</h2> -->
+      <p id="from"></p>
+      <p id="to"></p>
+  </div>
+
+  <script>
+      // Function to get URL parameters
+      function getQueryParams() {
+          const params = {};
+          const parser = new URL(window.location.href);
+          const query = parser.search.substring(1).split('&');
+          query.forEach(param => {
+              const [key, value] = param.split('=');
+              params[decodeURIComponent(key)] = decodeURIComponent(value);
+          });
+          return params;
+      }
+
+      // Display the values
+      const params = getQueryParams();
+      document.getElementById('from').textContent = `From: ${params.from}`;
+      document.getElementById('to').textContent = `To: ${params.to}`;
+  </script>
+    <script type="module" src="main.js"></script>
+    
+  </body>
+</html>

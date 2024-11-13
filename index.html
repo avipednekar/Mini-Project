@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bus Route Management System</title>
+  <style>
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Body and Background */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f5f7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Color Palette */
+    :root {
+      --primary-color: #219ebc;
+      --secondary-color: #8ecae6;
+      --accent-color: #ffb703;
+      --light-color: #fff;
+      --text-color: #ffffff;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      width: 100%;
+      background-color: var(--primary-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar a {
+      color: white;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: var(--secondary-color);
+      border-radius: 5px;
+    }
+
+    /* Header Section with Background Image */
+    .header {
+      width: 100%;
+      height: 80vh;
+      background-image: url('logo.png'); /* Replace with your image URL */
+      background-size:contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-color);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Lighter Overlay for clearer background */
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3); /* Reduce opacity */
+      z-index: 1;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeInDown 1s forwards 0.5s;
+    }
+
+    .header p {
+      font-size: 1.3rem;
+      font-weight: 300;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeInUp 1s forwards 1s;
+    }
+
+    /* Keyframes for Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Search Section */
+    .search-section {
+      background: var(--light-color);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .search-section label {
+      font-weight: bold;
+      color: var(--text-color);
+      font-size: 1.2rem;
+    }
+
+    .search-section select {
+      padding: 8px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    /* Search Button Styling */
+    #go {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    #go:hover {
+      background-color: #b7323a;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="logo">Maharashtra Bus</div>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">How It Works</a>
+      <a href="#">Explore</a>
+      <a href="#">Review</a>
+      <a href="#">Blog</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>BEST PLACE TO FIND AND EXPLORE</h1>
+    <p>Find the best routes, destinations, and more with just one click</p>
+  </div>
+
+  <div class="search-section">
+    <label for="from">From:</label>
+    <select id="from">
+      <option value="Kolhapur">Kolhapur</option>
+    </select>
+
+    <label for="to">To:</label>
+    <select id="to">
+      <option value="Gargoti">Gargoti</option>
+      <option value="Gadhinglaj">Gadhinglaj</option>
+      <option value="Pune">Pune</option>
+      <option value="Mumbai">Mumbai</option>
+    </select>
+
+    <button id="go" onclick="openPage()">Search</button>
+  </div>
+
+  <script>
+    function openPage() {
+      const fromValue = document.getElementById('from').value;
+      const toValue = document.getElementById('to').value;
+      window.location.href = `index3.html?from=${encodeURIComponent(fromValue)}&to=${encodeURIComponent(toValue)}`;
+    }
+  </script>
+</body>
+
+</html>
