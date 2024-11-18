@@ -19,7 +19,7 @@ document.body.appendChild(renderer.domElement);
 const loader = new GLTFLoader();
 
 let bus, home; // Variables to store the bus and home objects
-let busSpeed = 1; // Set to positive for forward motion
+let busSpeed = 4; // Set to positive for forward motion
 
 // Load the bus model
 loader.load(
@@ -109,8 +109,6 @@ loader.load(
   }
 );
 
-
-
 // Add lights to the scene
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
@@ -119,46 +117,87 @@ directionalLight.position.set(0, 10, 10);
 scene.add(directionalLight);
 
 // Create a road surface
-const roadTexture = new THREE.TextureLoader().load('road.jpg'); // Load road texture
+const roadTexture = new THREE.TextureLoader().load('assets/road.jpg'); // Load road texture
 roadTexture.wrapS = roadTexture.wrapT = THREE.RepeatWrapping;
 roadTexture.repeat.set(20, 1); // Increase repeat for a longer road
 
 const roadMaterial = new THREE.MeshStandardMaterial({ map: roadTexture });
-const roadGeometry = new THREE.PlaneGeometry(2000, 250); // Double the road length
+const roadGeometry = new THREE.PlaneGeometry(2500, 250); // Double the road length
 const road = new THREE.Mesh(roadGeometry, roadMaterial);
 road.rotation.x = -Math.PI / 2; // Rotate to lay flat on the ground
-road.position.set(0, 0, 50); // Place the road under the bus
+road.position.set(250, 0, 50); // Place the road under the bus
 scene.add(road);
 
+// Create another road parallel to the first road
+const road2Texture = new THREE.TextureLoader().load('assets/road.jpg'); // Load the road texture
+road2Texture.wrapS = road2Texture.wrapT = THREE.RepeatWrapping;
+road2Texture.repeat.set(20, 1); // Repeat the texture for a long road
+
+const road2Material = new THREE.MeshStandardMaterial({ map: road2Texture });
+const road2Geometry = new THREE.PlaneGeometry(1500, 250); // Same size as the first road
+
+// Create the second road mesh
+const road2 = new THREE.Mesh(road2Geometry, road2Material);
+road2.rotation.x = -Math.PI / 2; // Lay flat on the ground
+road2.position.set(1250, 0, -150); // Shift closer to the curved road
+scene.add(road2);
+
+const separatorGeometry = new THREE.PlaneGeometry(2000, 10);
+const separatorMaterial = new THREE.MeshStandardMaterial({ color: 0x333333 }); // Dark gray for separator
+const separator = new THREE.Mesh(separatorGeometry, separatorMaterial);
+separator.rotation.x = -Math.PI / 2;
+separator.position.set(0, 0.01, -125); // Slightly raised above ground to prevent z-fighting
+scene.add(separator);
+
+// Function to create a left-curved road
+function createLeftCurveRoad() {
+  const curveTexture = new THREE.TextureLoader().load('assets/road.jpg'); // Load the road texture
+  curveTexture.wrapS = curveTexture.wrapT = THREE.RepeatWrapping;
+  curveTexture.repeat.set(20, 5); 
+
+  const curveMaterial = new THREE.MeshStandardMaterial({ map: curveTexture });
+
+  const leftCurveGeometry = new THREE.RingGeometry(
+    200, // Inner radius
+    450, // Outer radius
+    20, 
+    8,   // Number of rings
+    -Math.PI / 2, 
+    Math.PI / 2   
+  );
+  const leftCurve = new THREE.Mesh(leftCurveGeometry, curveMaterial);
+  leftCurve.rotation.x = -Math.PI / 2; 
+  leftCurve.position.set(1500, 0, -270); 
+  return leftCurve;
+}
+
+// Add the left curve road to the scene
+const leftCurveRoad = createLeftCurveRoad();
+scene.add(leftCurveRoad);
+
 // Create ground planes on both sides of the road
-const groundTexture = new THREE.TextureLoader().load('grass.jpg'); // Load a ground texture
+const groundTexture = new THREE.TextureLoader().load('assets/grass.jpg'); // Load a ground texture
 groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
 groundTexture.repeat.set(20, 20);
-
 const groundMaterial = new THREE.MeshStandardMaterial({ map: groundTexture });
-const groundGeometry = new THREE.PlaneGeometry(2000, 500); // Wide ground for both sides
+const groundGeometry = new THREE.PlaneGeometry(2000, 500); 
 
 // Left ground
 const leftGround = new THREE.Mesh(groundGeometry, groundMaterial);
 leftGround.rotation.x = -Math.PI / 2;
-leftGround.position.set(0, 0, -325); // Position to the left of the road
+leftGround.position.set(0, 0, -325); 
 scene.add(leftGround);
 
 // Right ground
 const rightGround = new THREE.Mesh(groundGeometry, groundMaterial);
 rightGround.rotation.x = -Math.PI / 2;
-rightGround.position.set(0, 0, 425); // Position to the right of the road
+rightGround.position.set(0, 0, 425); 
 scene.add(rightGround);
-
 
 function animate() {
   requestAnimationFrame(animate);
-
-  // Move the bus forward along the x-axis
-  if (bus && bus.position.x < 900) {
+  if (bus && bus.position.x < 1550) {
     bus.position.x += busSpeed;
-
-    // Adjust the camera position and look at the bus
     camera.position.x = bus.position.x - 150;
     camera.position.y = 120;
     camera.lookAt(bus.position);
