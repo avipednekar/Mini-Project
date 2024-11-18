@@ -1,195 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bus Route Management System</title>
-  <style>
-    /* Basic Reset */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    /* Body and Background */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f5f7;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* Color Palette */
-    :root {
-      --primary-color: #219ebc;
-      --secondary-color: #8ecae6;
-      --accent-color: #ffb703;
-      --light-color: #fff;
-      --text-color: #ffffff;
-    }
-
-    /* Navbar Styling */
-    .navbar {
-      width: 100%;
-      background-color: var(--primary-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--accent-color);
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .navbar a {
-      color: white;
-      padding: 0.8rem 1.2rem;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: background 0.3s ease;
-    }
-
-    .navbar a:hover {
-      background-color: var(--secondary-color);
-      border-radius: 5px;
-    }
-
-    /* Header Section with Background Image */
-    .header {
-      width: 100%;
-      height: 80vh;
-      background-image: url('logo.png'); /* Replace with your image URL */
-      background-size:contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-color);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Lighter Overlay for clearer background */
-    .header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.3); /* Reduce opacity */
-      z-index: 1;
-    }
-
-    .header h1 {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-      z-index: 2;
-      opacity: 0;
-      animation: fadeInDown 1s forwards 0.5s;
-    }
-
-    .header p {
-      font-size: 1.3rem;
-      font-weight: 300;
-      z-index: 2;
-      opacity: 0;
-      animation: fadeInUp 1s forwards 1s;
-    }
-
-    /* Keyframes for Animations */
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Search Section */
-    .search-section {
-      background: var(--light-color);
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-      margin-top: 20px;
-      display: flex;
-      gap: 15px;
-      align-items: center;
-      z-index: 10;
-    }
-
-    .search-section label {
-      font-weight: bold;
-      color: var(--text-color);
-      font-size: 1.2rem;
-    }
-
-    .search-section select {
-      padding: 8px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    /* Search Button Styling */
-    #go {
-      background-color: var(--accent-color);
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    #go:hover {
-      background-color: #b7323a;
-      transform: scale(1.05);
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style1.css">
 </head>
-
 <body>
   <div class="navbar">
     <div class="logo">Maharashtra Bus</div>
     <div>
-      <a href="#">Home</a>
-      <a href="#">How It Works</a>
-      <a href="#">Explore</a>
-      <a href="#">Review</a>
-      <a href="#">Blog</a>
+      <a href="index.html">Home</a>
+      <a href="#">Schemes</a>
+      <a href="explore.html">Explore</a>
+      <a href="review.html">Review</a>
       <a href="#">Contact</a>
     </div>
   </div>
@@ -203,6 +30,7 @@
     <label for="from">From:</label>
     <select id="from">
       <option value="Kolhapur">Kolhapur</option>
+      <option value="Pune">Pune</option>
     </select>
 
     <label for="to">To:</label>
@@ -212,17 +40,133 @@
       <option value="Pune">Pune</option>
       <option value="Mumbai">Mumbai</option>
     </select>
-
     <button id="go" onclick="openPage()">Search</button>
   </div>
 
-  <script>
-    function openPage() {
-      const fromValue = document.getElementById('from').value;
-      const toValue = document.getElementById('to').value;
-      window.location.href = `index3.html?from=${encodeURIComponent(fromValue)}&to=${encodeURIComponent(toValue)}`;
-    }
-  </script>
-</body>
+  <section class="hero">
+    <h2>Explore the Best Bus Schemes in Maharashtra</h2>
+    <p>Convenient and affordable travel options for everyone.</p>
+  </section>
 
+  <section id="schemes" class="schemes">
+    <h2>Our Schemes</h2>
+    <div class="scheme-container">
+      <div class="scheme-box">
+        <h3>Free Travel Scheme for Senior Citizens</h3>
+        <p>Provides free travel to senior citizens aged 75 and above.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="scheme-box">
+        <h3>Concessional Travel Scheme for Senior Citizens</h3>
+        <p>Offers discounted fares for senior citizens aged 65 to 74.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="scheme-box">
+        <h3>Student Concession Scheme</h3>
+        <p>Provides discounted fares for students traveling to schools and colleges.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="scheme-box">
+        <h3>Family Pass</h3>
+        <p>Offers discounted fares for families traveling together.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="scheme-box">
+        <h3>Holiday Pass</h3>
+        <p>Unlimited travel within a specific region for a fixed period.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="scheme-box">
+        <h3>Online Booking Discounts</h3>
+        <p>Offers discounts on online bookings for tickets.</p>
+        <button>Learn More</button>
+      </div>
+      <div class="scheme-box">
+        <h3>Special Packages for Tourists</h3>
+        <p>Special travel packages for tourists visiting destinations in Maharashtra.</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Updated Footer -->
+  <div id="footer-wrapper">
+    <footer id="footer" class="container" style="background: var(--primary-color); color: var(--light-color); padding: 2rem 1rem; margin-top: 2rem;">
+      <div class="row" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+        
+        <!-- Footer Logo -->
+        <div class="col logo" style="flex: 1; min-width: 250px; text-align: center;">
+          <img src="/assets/logo.png" alt="Maharashtra Bus Logo" style="width: 100px; margin-bottom: 15px;" />
+          <p style="font-size: 1.2rem; font-weight: bold;">Maharashtra Bus</p>
+          <p>Reliable Travel Solutions</p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div class="col-3 links" style="flex: 1; min-width: 200px;">
+          <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Quick Links</h3>
+          <ul class="style2" style="list-style: none; line-height: 1.8;">
+            <li><a href="#" style="color: var(--light-color); text-decoration: none;">About Us</a></li>
+            <li><a href="#" style="color: var(--light-color); text-decoration: none;">Services</a></li>
+            <li><a href="#" style="color: var(--light-color); text-decoration: none;">Our Fleet</a></li>
+            <li><a href="#" style="color: var(--light-color); text-decoration: none;">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Random Stuff Section -->
+        <div class="col-3 random" style="flex: 1; min-width: 200px;">
+          <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Random Stuff</h3>
+          <ul class="style2" style="list-style: none; line-height: 1.8;">
+            <li><a href="#" style="color: var(--light-color); text-decoration: none;">Travel Tips</a></li>
+            <li><a href="#" style="color: var(--light-color); text-decoration: none;">Travel Blogs</a></li>
+            <li><a href="#" style="color: var(--light-color); text-decoration: none;">FAQs</a></li>
+            <li><a href="#" style="color: var(--light-color); text-decoration: none;">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="col-3 contact" style="flex: 1; min-width: 250px;">
+          <h3 style="font-size: 1.3rem; margin-bottom: 10px;">Contact Us</h3>
+          <ul style="list-style: none; padding: 0; margin-bottom: 10px;">
+            <li><a href="#" class="icon brands fa-twitter" style="color: var(--light-color); margin-right: 15px; font-size: 1.5rem;">Twitter</a></li>
+            <li><a href="#" class="icon brands fa-facebook-f" style="color: var(--light-color); margin-right: 15px; font-size: 1.5rem;">Facebook</a></li>
+            <li><a href="#" class="icon brands fa-instagram" style="color: var(--light-color); font-size: 1.5rem;">Instagram</a></li>
+          </ul>
+          <p>1234 Fictional Road<br />
+            Mumbai, MH 00000<br />
+            (800) 555-0000</p>
+        </div>
+      </div>
+
+      <!-- Copyright Section -->
+      <div class="row" style="text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.3);">
+        <p style="font-size: 0.9rem;">&copy; 2024 Maharashtra Bus. All rights reserved. | Designed by <a href="#" style="color: var(--accent-color); text-decoration: none;">Team</a></p>
+      </div>
+    </footer>
+  </div>
+
+<script>
+  function openPage() {
+    const fromValue = document.getElementById('from').value;
+    const toValue = document.getElementById('to').value;
+  
+    const routeMap = {
+      'Kolhapur-Pune': 'map_pune.html',
+      'Kolhapur-Gargoti': 'map_gar.html',
+      'Kolhapur-Gadhinglaj': 'map_gad.html',
+      'Pune-Mumbai': 'map_mumbai.html',
+      'Pune-Gadhinglaj': 'map_pune_gad.html',
+    };
+  
+    // Create a key based on selected options
+    const routeKey = `${fromValue}-${toValue}`;
+  
+    // Check if the route exists in the mapping
+    if (routeMap[routeKey]) {
+      window.location.href = routeMap[routeKey];
+    } else {
+      alert('Sorry, no map is available for the selected route.');
+    }
+  }
+</script>
+</body>
 </html>
