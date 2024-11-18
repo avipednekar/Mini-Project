@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Bus Timetable</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* padding: 20px; */
+    }
+
+    h1 {
+      margin-top: 50px;
+      color: #219ebc;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .timetable-container {
+      width: 100%;
+      max-width: 1200px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead {
+      background-color: #219ebc;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.2rem;
+    }
+
+    th {
+      font-weight: bold;
+    }
+
+    tbody tr {
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    tbody tr:hover {
+      background-color: #f1f1f1;
+      transform: scale(1.02);
+      cursor: pointer;
+    }
+
+    .route-box {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #e3f2fd;
+      color: #0d47a1;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .selected-bus {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 1200px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .selected-bus.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-container {
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: #ffb703;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #e09b02;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .name-input {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .name-input label {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .name-input input {
+      padding: 12px;
+      font-size: 1.1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      Maharashtra Bus
+    </div>
+    <div class="navbar-menu">
+      <a href="index.html">Home</a>
+      <a href="#explore">Explore</a>
+      <a href="#review">Review</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+  <h1>Kolhapur to Gadhinglaj - Bus Timetable</h1>
+
+  <div class="timetable-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Bus Name</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Duration</th>
+          <th>Bus Type</th>
+        </tr>
+      </thead>
+      <tbody id="busList">
+        <tr onclick="selectBus(this)">
+          <td>Gadhinglaj Express</td>
+          <td>06:30 AM</td>
+          <td>08:00 AM</td>
+          <td>1h 30m</td>
+          <td>AC Mini</td>
+        </tr>
+        <tr onclick="selectBus(this)">
+          <td>Hillside Shuttle</td>
+          <td>09:00 AM</td>
+          <td>10:30 AM</td>
+          <td>1h 30m</td>
+          <td>Non-AC Seater</td>
+        </tr>
+        <tr onclick="selectBus(this)">
+          <td>Fast Rider</td>
+          <td>02:00 PM</td>
+          <td>03:30 PM</td>
+          <td>1h 30m</td>
+          <td>AC Seater</td>
+        </tr>
+        <tr onclick="selectBus(this)">
+          <td>Night Shuttle</td>
+          <td>07:30 PM</td>
+          <td>09:00 PM</td>
+          <td>1h 30m</td>
+          <td>AC Sleeper</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="route-box">
+    Route: Kolhapur → Kagal → Nipani → Gadhinglaj
+  </div>
+
+  <div id="selectedBus" class="selected-bus">
+    <h2>Selected Bus Details</h2>
+    <p><strong>Bus Name:</strong> <span id="busName"></span></p>
+    <p><strong>Departure:</strong> <span id="busDeparture"></span></p>
+    <p><strong>Arrival:</strong> <span id="busArrival"></span></p>
+    <p><strong>Duration:</strong> <span id="busDuration"></span></p>
+    <p><strong>Bus Type:</strong> <span id="busType"></span></p>
+
+    <div class="name-input">
+      <label for="userName">Your Name:</label>
+      <input type="text" id="userName" placeholder="Enter your name">
+    </div>
+
+    <div class="btn-container">
+      <button class="btn" onclick="bookTicket()">Book Ticket</button>
+    </div>
+  </div>
+  <button class="next-button" onclick="location.href='index1.html'">Next</button>
+
+  <script>
+    // Function to display the selected bus details
+    function selectBus(row) {
+      const cells = row.getElementsByTagName("td");
+
+      document.getElementById("busName").innerText = cells[0].innerText;
+      document.getElementById("busDeparture").innerText = cells[1].innerText;
+      document.getElementById("busArrival").innerText = cells[2].innerText;
+      document.getElementById("busDuration").innerText = cells[3].innerText;
+      document.getElementById("busType").innerText = cells[4].innerText;
+
+      const selectedBusSection = document.getElementById("selectedBus");
+      selectedBusSection.classList.add("show");
+    }
+
+    // Function to book a ticket
+    function bookTicket() {
+      const userName = document.getElementById("userName").value.trim();
+      const busName = document.getElementById("busName").innerText;
+
+      if (userName === "") {
+        alert("Please enter your name before booking.");
+        return;
+      }
+
+      alert(`Thank you, ${userName}! Your ticket for "${busName}" has been successfully booked.`);
+    }
+  </script>
+</body>
+</html>

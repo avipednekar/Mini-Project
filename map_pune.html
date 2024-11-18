@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map with Zig-Zag Line and Location Dots</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Map Container */
+    .map-container {
+      margin-top: 0px;
+    }
+
+    .map-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .location-dot {
+      position: absolute;
+      font-size: 40px;
+      color: #ea2c74;
+    }
+
+    .location {
+      position: absolute;
+      font-weight: bold;
+      color: black;
+    }
+
+    #karad-dot {
+      top: 460px;
+      left: 510px;
+    }
+
+    #satara-dot {
+      top: 220px;
+      left: 580px;
+    }
+
+    #karad-label {
+      top: 370px;
+      left: 600px;
+    }
+
+    #pune-label {
+      top: 120px;
+      left: 750px;
+    }
+
+    #kolhapur-label {
+      top: 500px;
+      left: 490px;
+    }
+
+    #satara-label {
+      top: 200px;
+      left: 570px;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      Maharashtra Bus
+    </div>
+    <div class="navbar-menu">
+      <a href="index.html">Home</a>
+      <a href="#explore">Explore</a>
+      <a href="#review">Review</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Background Map -->
+  <div class="map-container">
+    <img src="/assets/city.jpg" alt="City Map">
+  </div>
+
+  <!-- Gadhinglaj Marker and Label -->
+  <i id="karad-dot" class="fa-solid fa-location-dot location-dot"></i>
+  <i id="satara-dot" class="fa-solid fa-location-dot location-dot"></i>
+  <div id="pune-label" class="location">Pune</div>
+  <div id="kolhapur-label" class="location">Kolhapur</div>
+  <div id="karad-label" class="location">Karad</div>
+  <div id="satara-label" class="location">Satara</div>
+
+  <!-- Canvas for Drawing -->
+  <canvas id="lineCanvas"></canvas>
+
+  <!-- Next Button -->
+  <button class="next-button" onclick="location.href='kol-pune.html'">Next</button>
+
+  <script>
+    // Draw Zig-Zag Line on Canvas
+    function drawZigZagLine() {
+  const canvas = document.getElementById('lineCanvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Adjust coordinates for the line points
+  const points = [
+    { x: 525, y:500 }, // Kolhapur 
+    { x: 585, y : 400}, // Karad
+    { x: 594, y: 262 }, // Satara
+    { x: 730, y: 145}  // Pune
+  ];
+
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
+  points.forEach(point => ctx.lineTo(point.x, point.y));
+  ctx.strokeStyle = 'red';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+}
+
+window.onload = drawZigZagLine;
+window.onresize = drawZigZagLine;
+  </script>
+</body>
+</html>

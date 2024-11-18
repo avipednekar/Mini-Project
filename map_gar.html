@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map with Zig-Zag Line and Location Dots</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Map Container */
+    .map-container {
+      margin-top: 0px;
+    }
+
+    .map-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .location-dot {
+      position: absolute;
+      font-size: 40px;
+      color: #ea2c74;
+    }
+
+    .location {
+      position: absolute;
+      font-weight: bold;
+      color: black;
+    }
+
+    #ispurli-dot {
+      top: 280px;
+      left: 730px;
+    }
+
+    #mutitta-dot{
+      top: 220px;
+      left: 960px;
+    }
+
+    #ispurli-label {
+      top: 260px;
+      left: 720px;
+    }
+
+    #gargoti-label {
+      top: 260px;
+      right: 50px;
+    }
+
+    #kolhapur-label {
+      top: 340px;
+      left: 550px;
+    }
+
+    #mutitta-label {
+      top: 200px;
+      right: 160px;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      Maharashtra Bus
+    </div>
+    <div class="navbar-menu">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="review.html">Review</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Background Map -->
+  <div class="map-container">
+    <img src="/assets/city.jpg" alt="City Map">
+  </div>
+
+  <!-- Gadhinglaj Marker and Label -->
+  <i id="ispurli-dot" class="fa-solid fa-location-dot location-dot"></i>
+  <i id="mutitta-dot" class="fa-solid fa-location-dot location-dot"></i>
+  <div id="gargoti-label" class="location">Gargoti</div>
+  <div id="kolhapur-label" class="location">Kolhapur</div>
+  <div id="ispurli-label" class="location">Ispurli</div>
+  <div id="mutitta-label" class="location">Mu.Titta</div>
+
+  <!-- Canvas for Drawing -->
+  <canvas id="lineCanvas"></canvas>
+
+  <!-- Next Button -->
+  <button class="next-button" onclick="location.href='kol-gar.html'">Next</button>
+
+  <script>
+    // Draw Zig-Zag Line on Canvas
+    function drawZigZagLine() {
+  const canvas = document.getElementById('lineCanvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  // Adjust coordinates for the line points
+  const points = [
+    { x: 586, y: 404 }, // Kolhapur 
+    { x: 745, y : 322}, // Ispurli
+    { x: 975, y: 262 }, // Mu.Titta
+    { x: 1092, y: 322}  // Gargoti
+  ];
+
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
+  points.forEach(point => ctx.lineTo(point.x, point.y));
+  ctx.strokeStyle = 'red';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+}
+
+window.onload = drawZigZagLine;
+window.onresize = drawZigZagLine;
+  </script>
+</body>
+</html>

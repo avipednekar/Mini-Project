@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Bus Service</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #219ebc;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .contact-container {
+      width: 100%;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .contact-section {
+      background: #e3f2fd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .contact-section:hover {
+      transform: scale(1.05);
+      background-color: #d3eaf6;
+    }
+
+    .contact-section h2 {
+      color: #0d47a1;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .contact-info {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .contact-info span {
+      font-weight: bold;
+    }
+
+    .contact-info a {
+      color: #219ebc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-info a:hover {
+      color: #006bb3;
+      text-decoration: underline;
+    }
+
+    .footer {
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #219ebc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Contact Us</h1>
+
+  <div class="contact-container">
+    <!-- Bus Information Section -->
+    <div class="contact-section">
+      <h2>For Bus Information</h2>
+      <div class="contact-info">
+        <p><span>Phone Number:</span> <a href="tel:+912345678901">+91 234 567 8901</a></p>
+        <p><span>Email:</span> <a href="mailto:mahabus09@gmail.com">mahabus09@gmail.com</a></p>
+      </div>
+    </div>
+
+    <!-- Complaints Section -->
+    <div class="contact-section">
+      <h2>For Complaints</h2>
+      <div class="contact-info">
+        <p><span>Phone Number:</span> <a href="tel:+912345678902">+91 234 567 8902</a></p>
+        <p><span>Email:</span> <a href="mailto:mahabus09@gmail.com">mahabus09@gmail.com</a></p>
+      </div>
+    </div>
+
+    <!-- Accident Reports Section -->
+    <div class="contact-section">
+      <h2>For Accident Reports</h2>
+      <div class="contact-info">
+        <p><span>Phone Number:</span> <a href="tel:+912345678903">+91 234 567 8903</a></p>
+        <p><span>Email:</span> <a href="mailto:mahabus09@gmail.com">mahabus09@gmail.com</a></p>
+      </div>
+    </div>
+
+    <!-- General Contact Section -->
+    <div class="contact-section">
+      <h2>General Inquiries</h2>
+      <div class="contact-info">
+        <p>If you have any general inquiries, feel free to contact us:</p>
+        <p><span>Email:</span> <a href="mailto:mahabus09@gmail.com">mahabus09@gmail.com</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>For further assistance, please reach us at <a href="mailto:mahabus09@gmail.com">mahabus09@gmail.com</a>.</p>
+  </div>
+
+</body>
+
+</html>

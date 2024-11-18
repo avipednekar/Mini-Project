@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Kolhapur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            text-align: center;
+            background-color: #6a1b9a;
+            color: #fff;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            font-size: 1.5em;
+        }
+
+        nav {
+            background-color: #8e24aa;
+            text-align: center;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffeb3b;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            gap: 30px;
+        }
+
+        .place {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .place:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .place img {
+            width: 100%;
+            object-fit: cover;
+            height: 300px;
+        }
+
+        .details {
+            padding: 25px;
+        }
+
+        .details h2 {
+            font-size: 2.5em;
+            color: #6a1b9a;
+            margin-bottom: 15px;
+        }
+
+        .details p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .details ul li strong {
+            color: #6a1b9a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #6a1b9a;
+            color: #fff;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Explore Kolhapur</h1>
+        <p>Journey Through History, Culture, and Nature</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#mahalakshmi">Mahalakshmi Temple</a></li>
+            <li><a href="#panhala">Panhala Fort</a></li>
+            <li><a href="#jotiba">Jotiba Temple</a></li>
+            <li><a href="#zoo">Radhanagari Zoo</a></li>
+            <li><a href="#new-palace">New Palace</a></li>
+            <li><a href="#rankala">Rankala Lake</a></li>
+            <li><a href="#rangana">Rangana Trek</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="place" id="mahalakshmi">
+            <img src="mahalakshmi.jpeg" alt="Mahalakshmi Temple">
+            <div class="details">
+                <h2>Mahalakshmi Temple : The Divine Jewel of Kolhapur</h2>
+                <p>The Mahalaxmi Temple in Kolhapur, also known as Ambabai Temple, is a significant Hindu temple dedicated to Goddess Mahalakshmi. It is one of the Shakti Peethas in Maharashtra and holds great religious importance. The temple was built in the 7th century CE by the Chalukya Empire and features Hemadpanti architecture.The temple is a popular pilgrimage site, and it is believed that visiting it can help achieve moksha (salvation). The temple hosts several festivals, including Kirnotsav, Rathotsav, Lakshmi Puja, Lalita Panchami, Navratri, and Diwali.<br>Experience the spiritual serenity and architectural splendor of this divine jewel in Kolhapur!.</p>
+                <ul>
+                    <li><strong>Location:</strong> Koregaon Bhima, Kolhapur</li>
+                    <li><strong>Timings:</strong> 5:00 AM - 10:00 PM</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="place" id="panhala">
+            <img src="panhala.jpeg" alt="Panhala Fort">
+            <div class="details">
+                <h2>Panhala Fort : A Timeless Marvel</h2>
+                <p>A historical site offering scenic beauty and a glimpse into Maratha history.Panhala Fort, also known as Panhalgad, is a historic fort located in Panhala, about 20 kilometers northwest of Kolhapur in Maharashtra.Built between 1178 and 1209 CE by the Shilahara ruler Bhoja II, the fort has seen numerous expansions and fortifications over the centuries.The fort is famous for its unique zig-zag shape, which is why it is also called the "Fort of Snakes".Panhala Fort holds significant historical importance, especially in the context of the Maratha Empire. It was a key site during the Battle of Pavan Khind and served as a residence for the Maratha queen regent, Tarabai.<br>Don't miss the chance to explore this timeless marvel on your visit to Kolhapur!</p>
+                <ul>
+                    <li><strong>Location:</strong> Panhala, Kolhapur</li>
+                    <li><strong>Timings:</strong> 8:00 AM - 5:00 PM</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="place" id="jotiba">
+            <img src="jotiba.jpeg" alt="Jotiba Temple">
+            <div class="details">
+                <h2>Jotiba Temple : The Pink Marvel of Kolhapur</h2>
+                <p>Jyotiba Temple, also known as Jyotirling Devasthan, is a revered Hindu shrine located near Wadi Ratnagiri in Kolhapur district, Maharashtra. The temple is dedicated to Lord Jyotiba, an incarnation of Brahma, Vishnu, and Maheshwar, and is situated at an elevation of 3124 feet above sea level.Jyotiba Temple is known for its unique pink hue, resulting from the vibrant 'gulal' (colored powder) scattered by devotees during the annual Chaitra and Vaishakha full moon festivals. The temple is a popular pilgrimage site, and it is believed that visiting it can help achieve spiritual blessings.<br>Plan your visit to experience the divine aura and the breathtaking beauty of this sacred site!</p>
+                <ul>
+                    <li><strong>Location:</strong> Pali, Kolhapur</li>
+                    <li><strong>Timings:</strong> 6:00 AM - 8:00 PM</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="place" id="zoo">
+            <img src="radhanagari-zoo.jpeg" alt="Radhanagari Zoo">
+            <div class="details">
+                <h2>Radhanagari Wildlife Sanctuary: A Haven for Nature Lovers</h2>
+                <p>A wildlife sanctuary home to rare species in serene surroundings.Nestled in the lush Sahyadri mountain range, Radhanagari Wildlife Sanctuary, also known as Dajipur Wildlife Sanctuary, is a natural paradise located in Kolhapur district, Maharashtra. Established in 1958, it is Maharashtra's first declared wildlife sanctuary and is renowned for its significant population of Indian bison, or gaur.It is home to a diverse range of flora and fauna, including 47 species of mammals, 59 species of reptiles, 264 species of birds, and 66 species of butterflies.<br>Visit to experience the breathtaking beauty and rich biodiversity of this sanctuary, a true haven for nature lovers!</p>
+                <ul>
+                    <li><strong>Location:</strong> Radhanagari, Kolhapur</li>
+                    <li><strong>Timings:</strong> 9:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="place" id="new-palace">
+            <img src="new-palace.jpeg" alt="New Palace">
+            <div class="details">
+                <h2>New Palace : The Regal Splendor of Kolhapur</h2>
+                <p>A stunning architectural marvel showcasing royal heritage and artifacts.The New Palace in Kolhapur, built between 1877 and 1884, is a magnificent example of Indian architecture, crafted in black polished stone. This historic palace, designed by Major Mant, blends Hindu and Jain influences with Rajwada style, creating a unique and captivating structure.The palace is home to the Shahaji Chhatrapati Museum, which showcases a splendid collection of royal memorabilia, including costumes, weapons, jewelry, and even a sword of the Mughal emperor Aurangzeb. The Darbar Hall, with its stained glass windows depicting scenes from the life of Chhatrapati Shivaji Maharaj, is a highlight of the palace.<br>Explore the grandeur and historical charm of this architectural marvel in Kolhapur!</p>
+                <ul>
+                    <li><strong>Location:</strong> Bhavani Mandap, Kolhapur</li>
+                    <li><strong>Timings:</strong> 10:00 AM - 6:00 PM</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="place" id="rankala">
+            <img src="rankala.jpeg" alt="Rankala Lake">
+            <div class="details">
+                <h2>Rankala Lake : The Serene Gem of Kolhapur</h2>
+                <p>A serene spot perfect for evening strolls, boating, and enjoying nature.The lake is named after the ancient temple of Rankabhairav situated on its banks. It is a popular spot for boating, evening strolls, and picnics, with a beautifully landscaped garden and a promenade that adds to its charm. The Shalini Palace, located nearby, enhances the scenic beauty of the area.The lake is surrounded by several attractions, including the Shalini Palace to the north and the Padmaraje Garden to the northeast.<br>Visit to Rankala Lake to experience the serene ambiance and breathtaking views.</p>
+                <ul>
+                    <li><strong>Location:</strong> Rajarampuri, Kolhapur</li>
+                    <li><strong>Timings:</strong> 6:00 AM - 8:00 PM</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="place" id="rangana">
+            <img src="rangana-trek.jpeg" alt="Rangana Trek">
+            <div class="details">
+                <h2>Rangana Trek : An Adventurer's Paradise</h2>
+                <p>A popular trekking destination offering breathtaking views.This trek offers a perfect blend of adventure and natural beauty, set against the backdrop of the scenic Sahyadri mountain range. The trek leads you through dense evergreen forests, unveiling hidden waterfalls and ancient caves along the way.<br>Whether you're a seasoned trekker or a first-time adventurer, the Rangana Trek promises an unforgettable experience filled with exploration, discovery, and the timeless thrill of the great outdoors. Lace up your hiking boots and get ready to create your own adventure story at Rangana!</p>
+                <ul>
+                    <li><strong>Location:</strong> Rangana Fort, Kolhapur</li>
+                    <li><strong>Timings:</strong> Daytime Hours</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Explore Kolhapur. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

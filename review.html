@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Reviews</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+      height: 100vh;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #219ebc;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 30px;
+      width: 100%;
+      max-width: 1400px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .review {
+      padding: 25px;
+      background-color: #e3f2fd;
+      border-radius: 15px;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+      animation: slideIn 0.5s ease-out forwards;
+      font-size: 1.2rem;
+    }
+
+    .review h3 {
+      margin-top: 0;
+      color: #0d47a1;
+      font-size: 1.5rem;
+    }
+
+    .review p {
+      font-size: 1.1rem;
+    }
+
+    .review .rating {
+      font-size: 1.4rem;
+      color: #ffb703;
+    }
+
+    .review .author {
+      font-style: italic;
+      color: #555;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .review-form {
+      width: 100%;
+      max-width: 700px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    .review-form input,
+    .review-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1.2rem;
+    }
+
+    .review-form label {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .review-form button {
+      background-color: #4caf50; /* Different color for the button */
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+      width: 100%;
+    }
+
+    .review-form button:hover {
+      background-color: #388e3c;
+      transform: translateY(-2px);
+    }
+
+    .review-form button:active {
+      transform: translateY(1px);
+    }
+
+    .add-review-btn {
+      background-color: #219ebc;
+      color: white;
+      padding: 10px 20px; /* Reduced size of the button */
+      border: none;
+      border-radius: 6px;
+      font-size: 1.2rem; /* Slightly smaller font size */
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+      margin-top: 20px;
+    }
+
+    .add-review-btn:hover {
+      background-color: #197b8a;
+      transform: translateY(-2px);
+    }
+
+    .add-review-btn:active {
+      transform: translateY(1px);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Bus Reviews</h1>
+
+  <div class="reviews-container">
+    <!-- Review 1 -->
+    <div class="review">
+      <h3>Gargoti Express</h3>
+      <div class="rating">⭐⭐⭐⭐</div>
+      <p>Comfortable ride with great air conditioning. The bus was clean and on time. Will travel again!</p>
+      <p class="author">- Nikhil</p>
+    </div>
+    <!-- Review 2 -->
+    <div class="review">
+      <h3>Rural Rider</h3>
+      <div class="rating">⭐⭐⭐</div>
+      <p>The bus was good, but it was a bit crowded. Could improve seating comfort. Overall, okay for short trips.</p>
+      <p class="author">- Shubham</p>
+    </div>
+    <!-- Review 3 -->
+    <div class="review">
+      <h3>Mountain Cruiser</h3>
+      <div class="rating">⭐⭐⭐⭐⭐</div>
+      <p>Exceptional service and great comfort! The ride was smooth, and the bus staff was friendly. Highly recommend it!</p>
+      <p class="author">- Ramesh</p>
+    </div>
+    <!-- Review 4 -->
+    <div class="review">
+      <h3>Night Rambler</h3>
+      <div class="rating">⭐⭐⭐⭐</div>
+      <p>Had a peaceful night journey. The sleeper service was amazing. The bus was clean and quiet.</p>
+      <p class="author">- Pankaj</p>
+    </div>
+  </div>
+
+  <button class="add-review-btn" onclick="toggleReviewForm()">Add Your Review</button>
+
+  <div class="review-form" id="reviewForm" style="display: none;">
+    <h2>Submit Your Review</h2>
+    <form id="reviewFormContent">
+      <label for="busName">Bus Name:</label>
+      <input type="text" id="busName" name="busName" placeholder="Enter bus name" required>
+
+      <label for="rating">Rating (1-5):</label>
+      <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+      <label for="reviewText">Review:</label>
+      <textarea id="reviewText" name="reviewText" rows="4" placeholder="Write your review" required></textarea>
+
+      <label for="authorName">Your Name:</label>
+      <input type="text" id="authorName" name="authorName" placeholder="Enter your name" required>
+
+      <button type="submit">Submit Review</button>
+    </form>
+  </div>
+
+  <script>
+    // Toggle the visibility of the review form
+    function toggleReviewForm() {
+      const form = document.getElementById("reviewForm");
+      form.style.display = form.style.display === "none" ? "block" : "none";
+    }
+
+    // Handle review submission
+    document.getElementById("reviewFormContent").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const busName = document.getElementById("busName").value;
+      const rating = document.getElementById("rating").value;
+      const reviewText = document.getElementById("reviewText").value;
+      const authorName = document.getElementById("authorName").value;
+
+      const newReview = document.createElement("div");
+      newReview.classList.add("review");
+
+      newReview.innerHTML = `
+        <h3>${busName}</h3>
+        <div class="rating">${'⭐'.repeat(rating)}</div>
+        <p>${reviewText}</p>
+        <p class="author">- ${authorName}</p>
+      `;
+
+      // Append the new review to the reviews container
+      document.querySelector(".reviews-container").appendChild(newReview);
+
+      // Reset and hide the form
+      document.getElementById("reviewFormContent").reset();
+      toggleReviewForm();
+    });
+  </script>
+
+</body>
+
+</html>
