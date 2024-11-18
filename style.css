@@ -4,66 +4,90 @@
   padding: 0;
 }
 
+/* Body and Background */
 body {
-  background-color: #87CEEB; /* Sky blue */
-}
-
-.container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-color: #eaeaea; /* Light Gray Background */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
-.road {
-  width: 60%;
-  height: 80%;
-  background-color: #555; /* Dark gray for the road */
-  position: relative;
-  z-index: 1;
+/* Color Palette */
+:root {
+  --primary-color: #ff6f61; /* Vibrant Coral */
+  --secondary-color: #ffffff; /* White */
+  --accent-color: #ffd700; /* Gold */
+  --light-color: #f4f5f7; /* Light Gray */
+  --text-color: #333; /* Dark Gray */
+  --highlight-color: #4caf50; /* Green for buttons */
 }
 
-.grass-left, .grass-right {
-  width: 20%;
-  height: 80%;
-  background-color: #228B22; /* Forest green for grass */
-  position: absolute;
-  top: 10%; /* Center the grass vertically */
+/* Navbar Styling */
+.navbar {
+  width: 100%;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.grass-left {
-  left: 0;
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.grass-right {
-  right: 0;
+.navbar a {
+  color: white;
+  padding: 0.8rem 1.2rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.3s ease;
+  border-radius: 5px;
 }
 
-.tree {
-  width: 50px;
-  height: 100px;
-  background-color: #8B4513; /* Brown for the trunk */
-  position: absolute;
-  bottom: 10%; /* Position trees above the grass */
+.navbar a:hover {
+  background-color: var(--accent-color);
+  color: #333;
 }
 
-.tree-left {
-  left: 5%;
+.next-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(90deg, #8f94fb, #4e54c8);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: pulse 1.5s infinite;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.tree-right {
-  right: 5%;
+.next-button:hover {
+  transform: translateX(-50%) scale(1.1);
+  background: linear-gradient(90deg, #4e54c8, #8f94fb);
 }
 
-.tree:before {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: -20px;
-  width: 90px;
-  height: 90px;
-  background-color: #32CD32; /* Lime green for the leaves */
-  border-radius: 50%;
+/* Button Animation */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
 }
